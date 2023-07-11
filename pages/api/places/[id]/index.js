@@ -1,5 +1,5 @@
-import dbConnect from "../../../db/connect";
-import Place from "../../../db/models/Place";
+import dbConnect from "../../../../db/connect";
+import Place from "../../../../db/models/Place";
 
 export default async function handler(request, response) {
   await dbConnect();
@@ -22,6 +22,12 @@ export default async function handler(request, response) {
 if (request.method === "PATCH") {
   const placeData = request.body;
   await Place.findByIdAndUpdate(id, placeData);
-  return response.status(200).json({ status: "Product successfully updated." });
+  return response.status(200).json({ status: "Place successfully updated." });
+}
+
+if (request.method === "DELETE") {
+  const placeData = request.body;
+  await Place.findByIdAndDelete(id);
+  return response.status(200).json({ status: "Place successfully deleted." });
 }
 }

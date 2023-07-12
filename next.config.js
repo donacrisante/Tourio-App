@@ -22,7 +22,7 @@ const nextConfig = {
       },
       {
         protocol: "https",
-        hostname: "www.geneve.com",
+        hostname: "images.newscientist.com",
         port: "",
       },
     ],
